@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Folder Size Calculator</title>
+</head>
+
+<body>
+
+<h2>Folder Size Calculator</h2>
+
+<button id="scanBtn">Calculate Folder Size</button>
+
+<p><b>Joke:</b> <span id="joke"></span></p>
+
+<table border="1">
+    <tbody>
+        <tr>
+            <th>Total Size</th>
+            <td id="size"></td>
+        </tr>
+
+        <tr>
+            <th>Total Files</th>
+            <td id="files"></td>
+        </tr>
+
+        <tr>
+            <th>Total Folders</th>
+            <td id="folders"></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function displayFolderInfo(info){
+
+    document.getElementById("size").textContent = info.size;
+    document.getElementById("files").textContent = info.files;
+    document.getElementById("folders").textContent = info.folders;
+
+}
+
+function showJoke(joke){
+    document.getElementById("joke").textContent = joke;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Where did we host the project?
+- 
+
+How do we run the project?
+-
+
+List some runtime errors you faced during this work  (copy paste in full from the console):
+- 
+
+Disclosure of AI usage
+- 

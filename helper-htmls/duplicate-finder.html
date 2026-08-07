@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Duplicate File Finder</title>
+</head>
+
+<body>
+
+<h2>Duplicate File Finder</h2>
+
+<button id="scanBtn">Scan Folder</button>
+
+<p><b></b> <span id="joke"></span></p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Original File</th>
+            <th>Duplicate File</th>
+        </tr>
+    </thead>
+
+    <tbody id="resultBody"></tbody>
+</table>
+
+<script>
+function displayDuplicates(files){
+
+    const tbody = document.getElementById("resultBody");
+    tbody.innerHTML = "";
+
+    for(const file of files){
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${file.original}</td>
+            <td>${file.duplicate}</td>
+        `;
+
+        tbody.appendChild(row);
+    }
+
+}
+
+function showJoke(joke){
+    document.getElementById("joke").textContent = "A Joke:" + joke;
+}
+</script>
+</body>
+</html>

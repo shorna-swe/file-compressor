@@ -1,0 +1,68 @@
+This is a manual, not a sequential task list.
+
+1. You may need it....
+
+Await can only be used from inside an async function.
+
+To make a function async you simply put async before its declaration.
+
+For example:
+
+
+function add(x,y){
+    return x+y;
+}
+
+
+To make this function async you have to do:
+
+
+async function add(x,y){
+    return x+y;
+}
+
+
+
+2. The two projects are mostly complete. You will find your necessary
+html/js functions files at:
+
+helper-htmls/
+utils-helper.js
+
+
+In utils-helper.js I have given two async functions that you can call
+to get duplicate and list large files
+
+
+
+To get directory path you can use an "Open Dialog" 
+I have written a  sample usage code for you.
+
+
+```
+   let path = ""
+   const dir = electron.dialog.showOpenDialogSync({
+        properties:["openDirectory"]
+    }); 
+    
+        // As soon as you write this, a Open popup will appear, and
+        // whatever you select, will be inside dir[0].
+    if (dir)
+       path  = dir[0];
+
+```
+
+You can use that path for findDuplicates/ findLargeFiles functions.
+
+
+const answer = await doSomethingWithDirectory("/path/to/folder")
+
+
+Also:
+
+I have already taken care of the invoke function exposure
+code for you (yay). So no need to worry about writing the
+preloader script. (You still have to load it though)
+
+
+3. Fix exports related issues. Do not export extra.

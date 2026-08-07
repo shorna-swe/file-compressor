@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Disk Space Analyzer</title>
+</head>
+
+<body>
+
+<h2>Disk Space Analyzer</h2>
+
+<button id="scanBtn">Analyze Folder</button>
+
+<p><b></b> <span id="joke"></span></p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Size</th>
+        </tr>
+    </thead>
+
+    <tbody id="resultBody"></tbody>
+</table>
+
+<script>
+function displayLargeFiles(files){
+
+    const tbody = document.getElementById("resultBody");
+    tbody.innerHTML = "";
+
+    for(const file of files){
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${file.name}</td>
+            <td>${file.size_formatted}</td>
+        `;
+
+        tbody.appendChild(row);
+    }
+
+}
+
+function showJoke(joke){
+    document.getElementById("joke").textContent = joke;
+}
+</script>
+</body>
+</html>

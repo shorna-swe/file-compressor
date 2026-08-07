@@ -1,0 +1,11 @@
+Task 1
+======
+You have been assigned one of the two unfinished projects:
+- Duplicate File Finder
+- Large File Finder 
+
+Finish your assigned project.
+
+BE SURE TO ANSWER THE QUESTIONS IN ANSWERME.TXT
+
+You will find helpful instructions in MANUAL.txt
