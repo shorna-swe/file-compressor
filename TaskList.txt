@@ -9,3 +9,13 @@ Finish your assigned project.
 BE SURE TO ANSWER THE QUESTIONS IN ANSWERME.TXT
 
 You will find helpful instructions in MANUAL.txt
+
+
+Submission
+==========
+Zip the project folder and submit it via blc
+through appropriate assignment submission portal.
+
+
+Use the "choose file" feature to autogenerate the
+lab final (coverpage + report)
