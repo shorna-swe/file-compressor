@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "electron": "^43.3.0"
-  },
   "name": "dwp-finals-test",
   "version": "1.0.0",
   "description": "",
