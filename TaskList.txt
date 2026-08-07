@@ -16,6 +16,16 @@ Submission
 Zip the project folder and submit it via blc
 through appropriate assignment submission portal.
 
+BE SURE TO REMOVE NODE_MODULES FOLDER BEFORE ZIPPING.
+
 
 Use the "choose file" feature to autogenerate the
 lab final (coverpage + report)
+
+
+
+AI POLICY
+=========
+AI is allowed only for research purposes and must be
+discloded in the work. Using AI generated code directly
+without understanding is not allowed.
