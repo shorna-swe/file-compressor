@@ -27,7 +27,7 @@ async function add(x,y){
 html/js functions files at:
 
 helper-htmls/
-utils-helper.js
+helper.js
 
 
 In utils-helper.js I have given two async functions that you can call
@@ -52,7 +52,7 @@ I have written a  sample usage code for you.
 
 ```
 
-You can use that path for findDuplicates/ findLargeFiles functions.
+You can use that path for getDuplicateFiles/ getLargeFiles functions.
 
 
 const answer = await doSomethingWithDirectory("/path/to/folder")
