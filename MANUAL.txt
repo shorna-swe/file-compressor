@@ -45,7 +45,7 @@ I have written a  sample usage code for you.
         properties:["openDirectory"]
     }); 
     
-        // As soon as you write this, a Open popup will appear, and
+        // As soon as this line runs, a Open popup will appear, and
         // whatever you select, will be inside dir[0].
     if (dir)
        path  = dir[0];
