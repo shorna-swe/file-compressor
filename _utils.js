@@ -77,5 +77,3 @@ function calculateHash(filePath) {
         stream.on("error", reject);
     });
 }
-
-

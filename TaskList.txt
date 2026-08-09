@@ -17,6 +17,7 @@ Zip the project folder and submit it via blc
 through appropriate assignment submission portal.
 
 BE SURE TO REMOVE NODE_MODULES FOLDER BEFORE ZIPPING.
+Also REMOVE Files that you DO Not Need.
 
 
 Use the "choose file" feature to autogenerate the

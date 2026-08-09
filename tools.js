@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
-const utils = require("./utils")
+const utils = require("_utils.js")
 
 
 
@@ -73,9 +73,4 @@ async function findLargeItems(folderPath, LIMIT = 100 * 1024 * 1024) {
     result.sort((a, b) => b.size - a.size);
 
     return result;
-}
-
-
-module.exports = {
-    findDuplicateItems, findLargeItems
 }

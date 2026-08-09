@@ -27,10 +27,10 @@ async function add(x,y){
 html/js functions files at:
 
 helper-htmls/
-helper.js
+tools.js
 
 
-In utils-helper.js I have given two async functions that you can call
+In tools.js I have given two async functions that you can call
 to get duplicate and list large files
 
 
@@ -66,3 +66,8 @@ preloader script. (You still have to load it though)
 
 
 3. Fix exports related issues. Do not export extra.
+
+
+4. Keep pasting your errors in appropriate section in Answerme.txt
+I want to see your effort, even if you fail to complete it. And
+this section proves your effort.
