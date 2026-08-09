@@ -2,7 +2,7 @@
   "name": "dwp-finals-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "startApp": "index.js",
   "dependencies": {
     "debug": "^4.4.3",
     "env-paths": "^3.0.0",

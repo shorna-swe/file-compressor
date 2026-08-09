@@ -6,24 +6,24 @@ const utils = require("_utils.js")
 
 
 // Finds duplicates in any given directory
-// call it like findDuplicateItems("/path/to/folder")
+// call it like collectDuplicateFiles("/path/to/folder")
 // Returns list of duplicates like this:
 // [{original: "path/to/file", duplicate: "path/to/file"}, ....]
 
 
-async function findDuplicateItems(folderPath) {
+async function collectDuplicateFiles(folderPath) {
     const seen = new Map();
     const duplicates = [];
 
     const files = [];
 
-    utils.exploreDirectory(folderPath, (filePath) => {
+    utils.readDirectory(folderPath, (filePath) => {
         files.push(filePath);
     });
 
     for (const filePath of files) {
         try {
-        const hash = await utils.calculateHash(filePath);
+        const hash = await utils.createFileHash(filePath);
 
         if (seen.has(hash)) {
             duplicates.push({
@@ -43,18 +43,18 @@ async function findDuplicateItems(folderPath) {
 
 
 // Finds large files in any given directory. 
-// call it like findLargeItems("/path/to/folder")
+// call it like collectLargeFiles("/path/to/folder")
 
 // You may add an optional extra parameter LIMIT to ignore files smaller than that
 
 // Returns large files list like this:
 // [{name: "path/to/file", size: "1234456", size_formatted: "1.2 MB"} ...]
 
-async function findLargeItems(folderPath, LIMIT = 100 * 1024 * 1024) {
+async function collectLargeFiles(folderPath, LIMIT = 100 * 1024 * 1024) {
     const result = [];
     const files = [];
 
-    utils.exploreDirectory(folderPath, (filePath, entry) => {
+    utils.readDirectory(folderPath, (filePath, entry) => {
         files.push({ filePath, entry });
     });
 
@@ -65,7 +65,7 @@ async function findLargeItems(folderPath, LIMIT = 100 * 1024 * 1024) {
             result.push({
                 name: entry.name,
                 size,
-                size_formatted: utils.readableSize(size),
+                size_formatted: utils.formatFileSize(size),
             });
         }
     }

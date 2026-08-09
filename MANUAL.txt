@@ -52,7 +52,7 @@ I have written a  sample usage code for you.
 
 ```
 
-You can use that path for findDuplicateItems/ findLargeItems functions.
+You can use that path for collectDuplicateFiles/ collectLargeFiles functions.
 
 
 const answer = await doSomethingWithDirectory("/path/to/folder")

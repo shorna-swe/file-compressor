@@ -3,32 +3,32 @@ const path = require("path");
 const crypto = require("crypto");
 
 
-function calculateDirectorySize(folderPath) {
+function measureFolderSpace(folderPath) {
 
     let totalBytes = 0;
     let totalFiles = 0;
     let totalFolders = 0;
 
-    function countSubfolders(dir) {
+    function getSubfolderCount(dir) {
         const entries = fs.readdirSync(dir, { withFileTypes: true });
 
         for (const entry of entries) {
             if (entry.isDirectory()) {
                 totalFolders++;
-                countSubfolders(path.join(dir, entry.name));
+                getSubfolderCount(path.join(dir, entry.name));
             }
         }
     }
 
-    exploreDirectory(folderPath, (filePath) => {
+    readDirectory(folderPath, (filePath) => {
         totalFiles++;
         totalBytes += fs.statSync(filePath).size;
     });
 
-    countSubfolders(folderPath);
+    getSubfolderCount(folderPath);
 
     return {
-        size: readableSize(totalBytes),
+        size: formatFileSize(totalBytes),
         files: totalFiles,
         folders: totalFolders
     };
@@ -37,21 +37,21 @@ function calculateDirectorySize(folderPath) {
 
 
 
-function exploreDirectory(dir, callback) {
+function readDirectory(dir, callback) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
 
     for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
 
         if (entry.isDirectory()) {
-            exploreDirectory(fullPath, callback);
+            readDirectory(fullPath, callback);
         } else {
             callback(fullPath, entry);
         }
     }
 }
 
-function readableSize(bytes) {
+function formatFileSize(bytes) {
 
     const units = ["B", "KB", "MB", "GB", "TB"];
     let size = bytes;
@@ -67,7 +67,7 @@ function readableSize(bytes) {
 
 
 
-function calculateHash(filePath) {
+function createFileHash(filePath) {
     return new Promise((resolve, reject) => {
         const hash = crypto.createHash("md5");
         const stream = fs.createReadStream(filePath);

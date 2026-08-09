@@ -1,6 +1,6 @@
 const electron = require("electron");
 const path = require("path");
-const  helper = require("./utils-helper")
+const  helper = require("tools.js") // Add / to fix this
 
 
 
