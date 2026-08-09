@@ -3,32 +3,32 @@ const path = require("path");
 const crypto = require("crypto");
 
 
-function getFolderSize(folderPath) {
+function calculateDirectorySize(folderPath) {
 
     let totalBytes = 0;
     let totalFiles = 0;
     let totalFolders = 0;
 
-    function countDirectories(dir) {
+    function countSubfolders(dir) {
         const entries = fs.readdirSync(dir, { withFileTypes: true });
 
         for (const entry of entries) {
             if (entry.isDirectory()) {
                 totalFolders++;
-                countDirectories(path.join(dir, entry.name));
+                countSubfolders(path.join(dir, entry.name));
             }
         }
     }
 
-    scanDirectory(folderPath, (filePath) => {
+    exploreDirectory(folderPath, (filePath) => {
         totalFiles++;
         totalBytes += fs.statSync(filePath).size;
     });
 
-    countDirectories(folderPath);
+    countSubfolders(folderPath);
 
     return {
-        size: formatBytes(totalBytes),
+        size: readableSize(totalBytes),
         files: totalFiles,
         folders: totalFolders
     };
@@ -37,21 +37,21 @@ function getFolderSize(folderPath) {
 
 
 
-function scanDirectory(dir, callback) {
+function exploreDirectory(dir, callback) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
 
     for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
 
         if (entry.isDirectory()) {
-            scanDirectory(fullPath, callback);
+            exploreDirectory(fullPath, callback);
         } else {
             callback(fullPath, entry);
         }
     }
 }
 
-function formatBytes(bytes) {
+function readableSize(bytes) {
 
     const units = ["B", "KB", "MB", "GB", "TB"];
     let size = bytes;
@@ -67,7 +67,7 @@ function formatBytes(bytes) {
 
 
 
-function getFileHash(filePath) {
+function calculateHash(filePath) {
     return new Promise((resolve, reject) => {
         const hash = crypto.createHash("md5");
         const stream = fs.createReadStream(filePath);

@@ -6,24 +6,24 @@ const utils = require("./utils")
 
 
 // Finds duplicates in any given directory
-// call it like getDuplicateFiles("/path/to/folder")
+// call it like findDuplicateItems("/path/to/folder")
 // Returns list of duplicates like this:
 // [{original: "path/to/file", duplicate: "path/to/file"}, ....]
 
 
-async function getDuplicateFiles(folderPath) {
+async function findDuplicateItems(folderPath) {
     const seen = new Map();
     const duplicates = [];
 
     const files = [];
 
-    utils.scanDirectory(folderPath, (filePath) => {
+    utils.exploreDirectory(folderPath, (filePath) => {
         files.push(filePath);
     });
 
     for (const filePath of files) {
         try {
-        const hash = await utils.getFileHash(filePath);
+        const hash = await utils.calculateHash(filePath);
 
         if (seen.has(hash)) {
             duplicates.push({
@@ -43,18 +43,18 @@ async function getDuplicateFiles(folderPath) {
 
 
 // Finds large files in any given directory. 
-// call it like getLargeFiles("/path/to/folder")
+// call it like findLargeItems("/path/to/folder")
 
 // You may add an optional extra parameter LIMIT to ignore files smaller than that
 
 // Returns large files list like this:
 // [{name: "path/to/file", size: "1234456", size_formatted: "1.2 MB"} ...]
 
-async function getLargeFiles(folderPath, LIMIT = 100 * 1024 * 1024) {
+async function findLargeItems(folderPath, LIMIT = 100 * 1024 * 1024) {
     const result = [];
     const files = [];
 
-    utils.scanDirectory(folderPath, (filePath, entry) => {
+    utils.exploreDirectory(folderPath, (filePath, entry) => {
         files.push({ filePath, entry });
     });
 
@@ -65,7 +65,7 @@ async function getLargeFiles(folderPath, LIMIT = 100 * 1024 * 1024) {
             result.push({
                 name: entry.name,
                 size,
-                size_formatted: utils.formatBytes(size),
+                size_formatted: utils.readableSize(size),
             });
         }
     }
@@ -77,5 +77,5 @@ async function getLargeFiles(folderPath, LIMIT = 100 * 1024 * 1024) {
 
 
 module.exports = {
-    getDuplicateFiles, getLargeFiles
+    findDuplicateItems, findLargeItems
 }
