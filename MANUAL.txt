@@ -92,3 +92,8 @@ Feel free to use the code given to you from the last class.
 4. Keep pasting your errors in appropriate section in Answerme.txt
 I want to see your effort, even if you fail to complete it. And
 this section proves your effort.
+
+
+
+5. You may need to implement 2 signals in the main process, one to start,
+and other to get progress.

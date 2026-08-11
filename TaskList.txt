@@ -11,6 +11,17 @@ BE SURE TO ANSWER THE QUESTIONS IN ANSWERME.TXT
 You will find helpful instructions in MANUAL.txt
 
 
+What is already done?
+
+File compression library and url download library is
+already provided to you. These two libraries handle the
+complexities of downloading a file/ compressing a file.
+
+
+Check MANUAL.txt for more info.
+
+
+
 Submission
 ==========
 Zip the project folder and submit it via blc
