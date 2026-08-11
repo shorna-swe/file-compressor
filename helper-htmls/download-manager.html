@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Download Manager</title>
+</head>
+
+<body>
+
+    <h1 id="clock"></h1>
+    <h1>Download Manager</h1>
+
+    <div class="download-form">
+
+        <input
+            id="download-link"
+            type="text"
+            placeholder="Enter download link"
+        >
+
+        <button id="choose-location">
+            Download
+        </button>
+
+        <span id="output">
+            No location selected
+        </span>
+
+    </div>
+
+    <div class="progress-container">
+
+        <progress
+            id="progress"
+            value="0"
+            max="100"
+        ></progress>
+
+        <div id="progress-text">
+            0%
+        </div>
+
+    </div>
+    <script>
+
+        async function loadProgress(progress) {
+            const bar = document.getElementById("progress");
+            const text = document.getElementById("progress-text");
+            const out = document.getElementById("output");
+
+            bar.value = progress.percentage;
+            text.textContent =
+                `${progress.percentage.toFixed(2)}% ` +
+                `(${progress.downloaded} / ${progress.total})`;
+
+            out.innerText = progress.destination;
+        }
+
+
+
+
+    </script>
+
+    <script src="renderer.js"></script>
+
+</body>
+
+</html>

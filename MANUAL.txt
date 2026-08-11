@@ -30,9 +30,24 @@ helper-htmls/
 tools.js
 
 
-In tools.js I have given two async functions that you can call
-to get duplicate and list large files
+In tools.js I have given two functions:
 
+1)
+createAndStartDownload
+
+it takes a url and a folder directory path and downloads the file in there.
+
+
+2)
+createAndStartCompression
+
+It takes a folder directory and compresses that folder to folder.zip in its
+parent directory.
+
+
+Both of these give an object. And you can use 
+obj.finished() function to see whether the download/compression finished
+and obj.getProgress() to get the download/compression progress.
 
 
 To get directory path you can use an "Open Dialog" 
@@ -52,20 +67,26 @@ I have written a  sample usage code for you.
 
 ```
 
-You can use that path for collectDuplicateFiles/ collectLargeFiles functions.
+You can use that path for the above two functions.
+Like this:
 
+const dl = download("www.google.com", path);
 
-const answer = await doSomethingWithDirectory("/path/to/folder")
+or,
 
+const cm = compress(path);
 
 Also:
 
+
+
 I have already taken care of the invoke function exposure
 code for you (yay). So no need to worry about writing the
-preloader script. (You still have to load it though)
+preloader script. (You still have to load it though using a preloader).
+Feel free to use the code given to you from the last class.
 
 
-3. Fix exports related issues. Do not export extra.
+3. Fix exports related issues. Do not export extra stuffs.
 
 
 4. Keep pasting your errors in appropriate section in Answerme.txt

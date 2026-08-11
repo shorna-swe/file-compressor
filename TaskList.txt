@@ -1,8 +1,8 @@
 Task 1
 ======
 You have been assigned one of the two unfinished projects:
-- Duplicate File Finder
-- Large File Finder 
+- Download Manager
+- File Compressor
 
 Finish your assigned project.
 

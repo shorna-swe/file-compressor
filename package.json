@@ -4,6 +4,7 @@
   "description": "",
   "startApp": "index.js",
   "dependencies": {
+    "archiver": "^8.0.0",
     "debug": "^4.4.3",
     "env-paths": "^3.0.0",
     "graceful-fs": "^4.2.11",
