@@ -20,5 +20,8 @@
     "start": "electron ."
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^43.4.0"
+  }
 }

@@ -10,3 +10,6 @@ function createAndStartDownload(url, directory) {
 function createAndStartCompression(source) {
     return new Compression(source, `${source}.zip`);
 }
+module.exports = {
+    createAndStartCompression
+};
